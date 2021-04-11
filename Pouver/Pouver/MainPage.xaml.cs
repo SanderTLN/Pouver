@@ -167,6 +167,7 @@ namespace Pouver
             btnS.Margin = 5;
             btnS.CornerRadius = 10;
             btnS.VerticalOptions = LayoutOptions.End;
+            btnS.Clicked += BtnS_Clicked;
 
             btnS2 = new Button();
             btnS2.Text = "Shop";
@@ -180,6 +181,7 @@ namespace Pouver
             btnS2.Margin = 5;
             btnS2.CornerRadius = 10;
             btnS2.VerticalOptions = LayoutOptions.End;
+            btnS2.Clicked += BtnS_Clicked;
 
             btnS3 = new Button();
             btnS3.Text = "Shop";
@@ -193,6 +195,7 @@ namespace Pouver
             btnS3.Margin = 5;
             btnS3.CornerRadius = 10;
             btnS3.VerticalOptions = LayoutOptions.End;
+            btnS3.Clicked += BtnS_Clicked;
 
             btnS4 = new Button();
             btnS4.Text = "Shop";
@@ -206,6 +209,7 @@ namespace Pouver
             btnS4.Margin = 5;
             btnS4.CornerRadius = 10;
             btnS4.VerticalOptions = LayoutOptions.End;
+            btnS4.Clicked += BtnS_Clicked;
 
             btnS5 = new Button();
             btnS5.Text = "Shop";
@@ -219,6 +223,7 @@ namespace Pouver
             btnS5.Margin = 5;
             btnS5.CornerRadius = 10;
             btnS5.VerticalOptions = LayoutOptions.End;
+            btnS5.Clicked += BtnS_Clicked;
 
             btnF = new Button();
             btnF.Text = "Fridge";
@@ -232,6 +237,7 @@ namespace Pouver
             btnF.Margin = 5;
             btnF.CornerRadius = 10;
             btnF.VerticalOptions = LayoutOptions.End;
+            btnF.Clicked += BtnF_Clicked;
 
             btnW = new Button();
             btnW.Text = "Wash";
@@ -241,10 +247,11 @@ namespace Pouver
             btnW.BorderWidth = 2;
             btnW.BorderColor = Color.LightSkyBlue;
             btnW.WidthRequest = 55;
-            btnW.HeightRequest = 65;
+            btnW.HeightRequest = 70;
             btnW.Margin = 5;
             btnW.CornerRadius = 10;
             btnW.VerticalOptions = LayoutOptions.End;
+            btnW.Clicked += BtnW_Clicked;
 
             btnCB = new Button();
             btnCB.Text = "Cupboard";
@@ -258,6 +265,7 @@ namespace Pouver
             btnCB.Margin = 5;
             btnCB.CornerRadius = 10;
             btnCB.VerticalOptions = LayoutOptions.End;
+            btnCB.Clicked += BtnCB_Clicked;
 
             btnG = new Button();
             btnG.Text = "Games";
@@ -267,10 +275,11 @@ namespace Pouver
             btnG.BorderWidth = 2;
             btnG.BorderColor = Color.YellowGreen;
             btnG.WidthRequest = 80;
-            btnG.HeightRequest = 50;
+            btnG.HeightRequest = 70;
             btnG.Margin = 5;
             btnG.CornerRadius = 10;
             btnG.VerticalOptions = LayoutOptions.End;
+            btnG.Clicked += BtnG_Clicked;
 
             btnL = new Button();
             btnL.Text = "Lamp";
@@ -280,10 +289,11 @@ namespace Pouver
             btnL.BorderWidth = 2;
             btnL.BorderColor = Color.LightYellow;
             btnL.WidthRequest = 60;
-            btnL.HeightRequest = 65;
+            btnL.HeightRequest = 70;
             btnL.Margin = 5;
             btnL.CornerRadius = 10;
             btnL.VerticalOptions = LayoutOptions.End;
+            btnL.Clicked += BtnL_Clicked;
 
             Pouver = new Image();
             Pouver.Source = "Pouver.png";
@@ -319,7 +329,7 @@ namespace Pouver
             {
                 Content = new StackLayout
                 {
-                    Spacing = 75,
+                    Spacing = 90,
                     BackgroundColor = Color.Wheat,
                     Children =
                     {
@@ -371,7 +381,7 @@ namespace Pouver
             {
                 Content = new StackLayout
                 {
-                    Spacing = 75,
+                    Spacing = 90,
                     BackgroundColor = Color.LightBlue,
                     Children =
                     {
@@ -423,7 +433,7 @@ namespace Pouver
             {
                 Content = new StackLayout
                 {
-                    Spacing = 75,
+                    Spacing = 90,
                     BackgroundColor = Color.PeachPuff,
                     Children =
                     {
@@ -475,7 +485,7 @@ namespace Pouver
             {
                 Content = new StackLayout
                 {
-                    Spacing = 75,
+                    Spacing = 90,
                     BackgroundColor = Color.LightGreen,
                     Children =
                     {
@@ -527,7 +537,7 @@ namespace Pouver
             {
                 Content = new StackLayout
                 {
-                    Spacing = 75,
+                    Spacing = 90,
                     BackgroundColor = Color.Goldenrod,
                     Children =
                     {
@@ -582,9 +592,39 @@ namespace Pouver
             Children.Add(bedroom);
         }
 
+        private void BtnL_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Light", "This is a magic lamp and you can't turn off it", "Umm.. Ok?");
+        }
+
+        private async void BtnG_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Games());
+        }
+
+        private async void BtnCB_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Cupboard());
+        }
+
+        private void BtnW_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Washing", "Can't you see I'm naked?", "Oops..");
+        }
+
+        private async void BtnF_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Fridge());
+        }
+
+        private async void BtnS_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Shop());
+        }
+
         private void OnTap(View arg1, object arg2)
         {
-            DisplayAlert("Pouver", "This is a main character Pouver", "Understood");
+            DisplayAlert("Description", "This is a main character Pouver", "Understood");
         }
 
         private void BtnC_Clicked(object sender, EventArgs e)

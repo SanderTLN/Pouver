@@ -86,13 +86,13 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Pouver.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Pouver\Pouver.csproj">
       <Project>{75C51247-3E73-496C-86A0-83F6E95AAF19}</Project>
       <Name>Pouver</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Pouver.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
