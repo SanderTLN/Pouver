@@ -10,7 +10,7 @@ namespace Pouver
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Autorize());
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

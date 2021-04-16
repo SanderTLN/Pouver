@@ -13,6 +13,8 @@ namespace Pouver
         Picker menu, menu2, menu3, menu4, menu5;
         Button btnC, btnS, btnF, btnC2, btnS2, btnC3, btnS3, btnC4, btnS4, btnC5, btnS5, btnW, btnCB, btnG, btnL;
         Image Pouver, Pouver2, Pouver3, Pouver4, Pouver5;
+        public int coins;
+        ContentPage kitchen, bathroom, laboratory, playroom, bedroom;
         public MainPage()
         {
             menu = new Picker();
@@ -86,7 +88,7 @@ namespace Pouver
             menu5.SelectedIndexChanged += Menu_SelectedIndexChanged;
 
             btnC = new Button();
-            btnC.Text = "2K";
+            btnC.Text = coins.ToString();
             btnC.FontSize = 10;
             btnC.TextColor = Color.LightYellow;
             btnC.BackgroundColor = Color.Gold;
@@ -100,7 +102,7 @@ namespace Pouver
             btnC.Clicked += BtnC_Clicked;
 
             btnC2 = new Button();
-            btnC2.Text = "2K";
+            btnC2.Text = coins.ToString();
             btnC2.FontSize = 10;
             btnC2.TextColor = Color.LightYellow;
             btnC2.BackgroundColor = Color.Gold;
@@ -114,7 +116,7 @@ namespace Pouver
             btnC2.Clicked += BtnC_Clicked;
 
             btnC3 = new Button();
-            btnC3.Text = "2K";
+            btnC3.Text = coins.ToString();
             btnC3.FontSize = 10;
             btnC3.TextColor = Color.LightYellow;
             btnC3.BackgroundColor = Color.Gold;
@@ -128,7 +130,7 @@ namespace Pouver
             btnC3.Clicked += BtnC_Clicked;
 
             btnC4 = new Button();
-            btnC4.Text = "2K";
+            btnC4.Text = coins.ToString();
             btnC4.FontSize = 10;
             btnC4.TextColor = Color.LightYellow;
             btnC4.BackgroundColor = Color.Gold;
@@ -142,7 +144,7 @@ namespace Pouver
             btnC4.Clicked += BtnC_Clicked;
 
             btnC5 = new Button();
-            btnC5.Text = "2K";
+            btnC5.Text = coins.ToString();
             btnC5.FontSize = 10;
             btnC5.TextColor = Color.LightYellow;
             btnC5.BackgroundColor = Color.Gold;
@@ -325,7 +327,9 @@ namespace Pouver
             Pouver5.HeightRequest = 200;
             Pouver5.GestureRecognizers.Add(new TapGestureRecognizer(OnTap));
 
-            var kitchen = new ContentPage
+            coins = 0;
+
+            kitchen = new ContentPage
             {
                 Content = new StackLayout
                 {
@@ -377,7 +381,7 @@ namespace Pouver
                     }
                 }
             };
-            var bathroom = new ContentPage
+            bathroom = new ContentPage
             {
                 Content = new StackLayout
                 {
@@ -429,7 +433,7 @@ namespace Pouver
                     }
                 }
             };
-            var laboratory = new ContentPage
+            laboratory = new ContentPage
             {
                 Content = new StackLayout
                 {
@@ -481,7 +485,7 @@ namespace Pouver
                     }
                 }
             };
-            var playroom = new ContentPage
+            playroom = new ContentPage
             {
                 Content = new StackLayout
                 {
@@ -533,7 +537,7 @@ namespace Pouver
                     }
                 }
             };
-            var bedroom = new ContentPage
+            bedroom = new ContentPage
             {
                 Content = new StackLayout
                 {
@@ -594,7 +598,7 @@ namespace Pouver
 
         private void BtnL_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Light", "This is a magic lamp and you can't turn off it", "Umm.. Ok?");
+            DisplayAlert("Light", "This is a magic lamp and you can't turn it off", "Umm.. Ok?");
         }
 
         private async void BtnG_Clicked(object sender, EventArgs e)
@@ -609,7 +613,12 @@ namespace Pouver
 
         private void BtnW_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Washing", "Can't you see I'm naked?", "Oops..");
+            coins = coins + 1;
+            btnC.Text = coins.ToString();
+            btnC2.Text = coins.ToString();
+            btnC3.Text = coins.ToString();
+            btnC4.Text = coins.ToString();
+            btnC5.Text = coins.ToString();
         }
 
         private async void BtnF_Clicked(object sender, EventArgs e)
@@ -625,11 +634,19 @@ namespace Pouver
         private void OnTap(View arg1, object arg2)
         {
             DisplayAlert("Description", "This is a main character Pouver", "Understood");
+            Random rnd = new Random();
+            int value = rnd.Next(0, 3);
+            coins = coins + value;
+            btnC.Text = coins.ToString();
+            btnC2.Text = coins.ToString();
+            btnC3.Text = coins.ToString();
+            btnC4.Text = coins.ToString();
+            btnC5.Text = coins.ToString();
         }
 
         private void BtnC_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Coins", "You have: 2311 coins", "Great");
+            DisplayAlert("Coins", "You have: "+ coins + " coins", "Great");
         }
 
         private void Menu_SelectedIndexChanged(object sender, EventArgs e)
